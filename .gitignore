@@ -1,0 +1,7 @@
+/audio/
+/csv/
+*.txt
+*.opus
+*.wav
+*.mp3
+*.csv
