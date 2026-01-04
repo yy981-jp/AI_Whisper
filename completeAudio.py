@@ -13,7 +13,7 @@ for name in os.listdir(CSV_DIR):
 	if name.lower().endswith(".csv"):
 		csv_basenames.add(os.path.splitext(name)[0])
 
-# audio以下を再帰的に探索
+# audio/mono以下を再帰的に探索
 for root, dirs, files in os.walk(AUDIO_DIR):
 	# completed 自身は対象外にする
 	if os.path.abspath(root) == os.path.abspath(COMPLETED_DIR):
@@ -28,7 +28,7 @@ for root, dirs, files in os.walk(AUDIO_DIR):
 			src = os.path.join(root, file)
 			dst = os.path.join(COMPLETED_DIR, file)
 
-			# 同名ファイルが already ある場合はスキップ
+			# 同名ファイルが既にある場合はスキップ
 			if os.path.exists(dst):
 				print(f"skip (already exists): {file}")
 				continue
